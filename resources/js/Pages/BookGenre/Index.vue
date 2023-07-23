@@ -75,12 +75,12 @@ const toggleStatus = (genero) => {
                                                         </td>
                                                         <td class="whitespace-nowrap px-6 py-4">
                                                             {{
-                                                                format(parseISO(genero.created_at), "dd/MM/yyy 'às' HH:ii'h'")
+                                                                format(parseISO(genero.created_at), "dd/MM/yyy 'às' HH:mm'h'")
                                                             }}
                                                         </td>
                                                         <td class="whitespace-nowrap px-6 py-4">
                                                             {{
-                                                                format(parseISO(genero.updated_at), "dd/MM/yyy 'às' HH:ii'h'")
+                                                                format(parseISO(genero.updated_at), "dd/MM/yyy 'às' HH:mm'h'")
                                                             }}
                                                         </td>
                                                         <td class="whitespace-nowrap px-6 py-4">

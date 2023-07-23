@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookAuthorController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BookGenreController;
 use Illuminate\Foundation\Application;
@@ -44,6 +45,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/Generos/{bookGenre}', [BookGenreController::class, 'destroy'])->name('generos.destroy');
     Route::put('/Generos/{bookGenre}', [BookGenreController::class, 'toggleStatus'])->name('generos.toggle-status');
 
+    // Livros
+    Route::get('/Autores', [BookAuthorController::class, 'index'])->name('autores.index');
+    Route::get('/Autores/novo', [BookAuthorController::class, 'create'])->name('autores.create');
+    Route::post('/Autores', [BookAuthorController::class, 'store'])->name('autores.store');
+    Route::get('/Autores/{bookAuthor}/edit', [BookAuthorController::class, 'edit'])->name('autores.edit');
+    Route::put('/Autores/{bookAuthor}', [BookAuthorController::class, 'update'])->name('autores.update');
+    Route::delete('/Autores/{bookAuthor}', [BookAuthorController::class, 'destroy'])->name('autores.destroy');
 });
 
 require __DIR__ . '/auth.php';

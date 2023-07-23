@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\BookGenreController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -33,6 +34,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    // Generos
+    Route::get('/Generos', [BookGenreController::class, 'index'])->name('generos.index');
+    Route::get('/Generos/novo', [BookGenreController::class, 'create'])->name('generos.create');
+    Route::post('/Generos', [BookGenreController::class, 'store'])->name('generos.store');
+    Route::get('/Generos/{bookGenre}/edit', [BookGenreController::class, 'edit'])->name('generos.edit');
+    Route::put('/Generos/{bookGenre}', [BookGenreController::class, 'update'])->name('generos.update');
+    Route::delete('/Generos/{bookGenre}', [BookGenreController::class, 'destroy'])->name('generos.destroy');
+    Route::put('/Generos/{bookGenre}', [BookGenreController::class, 'toggleStatus'])->name('generos.toggle-status');
+
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
